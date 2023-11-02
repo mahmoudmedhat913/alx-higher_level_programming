@@ -13,5 +13,5 @@ def add_arg(argv):
         print("{:d}".format(add))
 
 if __name__ == "__main__":
-    imprt sys
+    import sys
     add_arg(sys.argv)
