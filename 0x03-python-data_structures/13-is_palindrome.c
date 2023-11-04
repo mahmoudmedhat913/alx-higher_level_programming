@@ -1,57 +1,64 @@
 #include "lists.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <stddef.h>
 
 /**
- * *add_nodeint - add new node at the begin
- * @head: head
- * @n: integer to add
- * Return: address or null if fail
+ * reverse - reverse linked list
+ * @head: first node
+ * Return: pointer
  */
 
-listint_t *add_nodeint(listint_t **head, const int n)
+void reverse(listint_t **head)
 {
-	listint_t *new;
+	listint_t *prev = NULL, *curr = *head, *next = NULL;
 
-	new = malloc(sizeof(listint_t));
-	if (new == NULL)
-		return (NULL);
-	new->n = n;
-	new->next = *head;
-	*head = new;
-	return (new);
+	while (curr)
+	{
+		next = curr->next;
+		curr->next = prev;
+		prev = curr;
+		curr = next;
+	}
+	*head = prev;
 }
 
 /**
  * is_palindrome - checks if a singly linked list is a palindrome
- * @head: head
- * Return: 1 if palindrome or 0 for fail
+ * @head: double pointer
+ * Return: 1 if is palindrome or 0 for fail
  */
 
 int is_palindrome(listint_t **head)
 {
-	listint_t *head2 = *head;
-	listint_t *aux = NULL, *aux2 = NULL;
+	listint_t *slow = *head, *fast = *head, *temp = *head, *dup = NULL;
 
-	if (*head == NULL || head2->next == NULL)
+	if (*head == NULL || (*head)->next == NULL)
 		return (1);
-	while (head2 != NULL)
+	while (1)
 	{
-		add_nodeint(&aux, head2->n);
-		head2 = head2->next;
-	}
-	aux2 = aux;
-	while (*head != NULL)
-	{
-		if ((*head)->n != aux2->n)
+		fast = fast->next->next;
+		if (!fast)
 		{
-			free_listint(aux);
-			return (0);
+			dup = slow->next;
+			break;
 		}
-		*head = (*head)->next;
-		aux2 = aux2->next;
+		if (!fast->next)
+		{
+			dup = slow->next->next;
+			break;
+		}
+		slow = slow->next;
 	}
-	free_listint(aux);
-	return (1);
+	reverse(&dup);
+	while (dup && temp)
+	{
+		if (temp->n == dup->n)
+		{
+			dup = dup->next;
+			temp = temp->next;
+		}
+		else
+			return (0);
+	}
+	if (!dup)
+		return (1);
+	return (0);
 }
