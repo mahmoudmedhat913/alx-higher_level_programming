@@ -10,10 +10,12 @@ def init_board(n):
     [row.append(' ') for i in range(n) for row in board]
     return (board)
 
+
 def board_deepcopy(board):
     if isinstance(board, list):
         return list(map(board_deepcopy, board))
     return (board)
+
 
 def get_solution(board):
     solution = []
@@ -24,6 +26,7 @@ def get_solution(board):
                 break
 
     return (solution)
+
 
 def xout(board, row, col):
     for c in range(col + 1, len(board)):
@@ -58,13 +61,14 @@ def xout(board, row, col):
             break
         board[r][c] = "x"
         c += 1
-    
+
     c = col - 1
     for r in range(row + 1, len(board)):
         if c < 0:
             break
         board[r][c] = "x"
         c -= 1
+
 
 def recursive_solve(board, row, queens, solutions):
     if queens == len(board):
