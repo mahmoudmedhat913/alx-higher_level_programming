@@ -11,6 +11,11 @@ Basic usage:
 	>>> print(matrix_divided(matrix, 3))
 	[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
 
+Non int/float:
+	>>> matrix_divided([[2, 4, 8], [1, "foo", 3]], 5)
+	Traceback (most recent call last):
+	...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 Zero "div" input:
 	>>> matrix = [[1, 2, 3], [4, 5, 6]]
