@@ -2,7 +2,7 @@
 """contain function"""
 
 
-def append_after(filenamr="", search_string="", new_string=""):
+def append_after(filename="", search_string="", new_string=""):
     """insert line of text to file"""
     res_line = []
     with open(filename, 'r', encoding="utf-8") as f:
