@@ -23,7 +23,7 @@ class Base:
         if list_dictionaries is None or not list_dictionaries:
             return "[]"
         else:
-            return dumbs(list_dictionaries)
+            return dumps(list_dictionaries)
 
     @staticmethod
     def from_json_string(json_string):
