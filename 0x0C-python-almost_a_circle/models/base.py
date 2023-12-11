@@ -79,7 +79,7 @@ class Base:
         with open('{}.csv'.format(cls.__name__), 'w', newline='',
                   encoding='utf-8') as f:
             writer = csv.writer(f)
-            writer..writerows(list_objs)
+            writer.writerows(list_objs)
 
     @classmethod
     def load_from_file_csv(cls):
