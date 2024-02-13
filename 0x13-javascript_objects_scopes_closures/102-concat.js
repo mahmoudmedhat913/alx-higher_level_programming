@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-const fs = require('fs').prmises;
+const fs = require('fs').promises;
 const { argv } = require('process');
 
 fs.readFile(argv[2], 'utf8')
