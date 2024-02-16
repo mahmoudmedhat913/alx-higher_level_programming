@@ -14,6 +14,6 @@ if __name__ == "__main__":
     session = Session()
     instance = session.query(State).first()
     if instance is None:
-        print("Notiong")
+        print("Nothing")
     else:
         print(instance.id, instance.name, sep=": ")
