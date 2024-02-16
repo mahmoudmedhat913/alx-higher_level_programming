@@ -7,7 +7,7 @@ mymetadata = MetaData()
 Base = declarative_base(metadata=mymetadata)
 
 
-class State(base):
+class State(Base):
     """class state"""
     __tablename__ = 'states'
     id = Column(Integer, unique=True, nullable=False, primary_key=True)
