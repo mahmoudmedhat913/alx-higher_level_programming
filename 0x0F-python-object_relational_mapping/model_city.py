@@ -5,7 +5,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 
 
-class State(Base):
+class City(Base):
     """class state"""
     __tablename__ = 'cities'
     id = Column(Integer, unique=True, nullable=False, primary_key=True)
