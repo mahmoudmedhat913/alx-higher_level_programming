@@ -2,10 +2,11 @@
 """python script that takes github credentials"""
 import requests
 from requests.auth import HTTPBasicAuth
-from sys import argv
+import sys
 
 if __name__ == "__main__":
-    url = 'https://api.github.com/users/{}'.format(argv[1])
-    r = requests.get(url,
-                     auth=HTTPBasicAuth(argv[1], argv[2]))
-    print(r.json().get('id'))
+    username = sys.argv[1]
+    password = sys.argv[2]
+    token = HTTPBasicAuth(username, password)
+    request = requests.get('https://api.github.com/user', auth=token)
+    print(request.json().get('id'))
