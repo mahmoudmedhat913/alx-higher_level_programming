@@ -1,4 +1,4 @@
-$(document).ready(function ()
+$(document).ready(function () {
   function translate () {
     $('DIV#hello').empty();
     const len = $('INPUT#language_code').val();
@@ -7,7 +7,7 @@ $(document).ready(function ()
       url: 'https://www.fourtonfish.com/hellosalut/hello/' + len,
       success: function (data) {
         $('DIV#hello').append(data.hello);
-    }
+      }
     });
   }
   $('INPUT#btn_translate').click(function () {
