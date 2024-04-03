@@ -7,7 +7,7 @@ $(document).ready(function ()
       url: 'https://www.fourtonfish.com/hellosalut/hello/' + len,
       success: function (data) {
         $('DIV#hello').append(data.hello);
-    }
+      }
     });
   });
 });
